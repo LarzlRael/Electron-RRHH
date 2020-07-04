@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/lux/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>Main</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="./assets/logoItso.png" alt="">
+            </div>
+            <div class="title">
+                R.R.H.H
+            </div>
+            <div class="button-to-sign">
+                <button class="btn-login" id="button-login"> Iniciar Sesion</button>
+            </div>
+        </header>
+        <div class="landpage">
+
+            <div class="footer-title">
+                <h3>
+                    Recursos <span>
+                        Humanos
+                    </span>
+                </h3>
+            </div>
+        </div>
+        <!--? Formulario ocultado por defecto -->
+
+
+
+    </div>
+
+    <div id="form-login" class="">
+        <div class="col-md-6 center-block popup" id="popup">
+            <div class="login">
+                <div class="card">
+                    <div class="card-title login-title">
+
+                        <span id="close-login">
+                            <i class="fa fa-window-close" aria-hidden="true"></i>
+                        </span>
+
+                        <h3 class="text-center">Iniciar Sesion</h3>
+
+                    </div>
+                    <div class="card-body">
+                        <form id="loginFormSubmit">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="usuario" placeholder="Usuario" autofocus>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="password" placeholder="Contraseña">
+                            </div>
+                            <input type="submit" value="Iniciar Sesion" class="btn btn-primary btn-block">
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

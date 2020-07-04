@@ -1,0 +1,96 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto";
+}
+
+.container {
+  padding: 30px;
+  z-index: 100;
+  width: 90%;
+  margin: auto;
+}
+.container header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container header .logo img {
+  width: 70px;
+  height: 70px;
+}
+.container header .title {
+  color: #808080;
+  font-size: 18px;
+  letter-spacing: 7px;
+}
+.container .button-to-sign .btn-login {
+  border: 3px solid #78BDC4;
+  background: transparent;
+  padding: 10px 20px;
+  border-radius: 40px;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.container .button-to-sign .btn-login:hover {
+  cursor: pointer;
+}
+.container .landpage {
+  width: 100%;
+  background: url("../assets/LandPage.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  position: relative;
+}
+.container .landpage .footer-title {
+  margin-top: 250px;
+  color: #2E606E;
+  font-weight: bold;
+  font-size: 35px;
+}
+.container .landpage .footer-title span {
+  display: block;
+}
+
+#form-login {
+  background-color: rgba(0, 0, 0, 0.3);
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#form-login.active {
+  visibility: visible;
+}
+#form-login .popup {
+  box-shadow: rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  padding: 20px;
+  opacity: 0;
+  transition: 0.3s ease all;
+  transform: scale(0.7);
+}
+#form-login .popup.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+#close-login {
+  font-size: 16px;
+  line-height: 16px;
+  display: block;
+  text-align: right;
+  transition: 0.3 ease all;
+}
+#close-login:hover {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=main.css.map */
