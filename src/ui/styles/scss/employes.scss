@@ -1,0 +1,41 @@
+.employes {
+    .datos-personales {
+        transition: .3s ease all;
+        display: none;
+        &.active {
+            display: block;
+        }
+    }
+    .direccion {
+        transition: .3s ease all;
+        &.active {
+            display: block;
+        }
+        display: none;
+    }
+    .puesto-trabajo {
+        
+        display: none;
+        &.active {
+            display: block;
+        }
+    }
+}
+
+.stepper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .step {
+        margin: 10px;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        border: 1px solid #ccc;
+        &.active{
+            border: none;
+            background: #3CA861;
+        }
+    }
+    
+}

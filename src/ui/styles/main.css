@@ -1,3 +1,41 @@
+.employes .datos-personales {
+  transition: 0.3s ease all;
+  display: none;
+}
+.employes .datos-personales.active {
+  display: block;
+}
+.employes .direccion {
+  transition: 0.3s ease all;
+  display: none;
+}
+.employes .direccion.active {
+  display: block;
+}
+.employes .puesto-trabajo {
+  display: none;
+}
+.employes .puesto-trabajo.active {
+  display: block;
+}
+
+.stepper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.stepper .step {
+  margin: 10px;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  border: 1px solid #ccc;
+}
+.stepper .step.active {
+  border: none;
+  background: #3CA861;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -91,6 +129,37 @@
 }
 #close-login:hover {
   cursor: pointer;
+}
+
+.contenedor {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.contenedor .caja {
+  border-radius: 20px;
+  padding: 20px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.contenedor .caja:hover {
+  cursor: pointer;
+}
+.contenedor .caja .logo span {
+  border-radius: 100%;
+}
+.contenedor .caja .logo span i {
+  padding: 15px;
+  background: #fff;
+  border-radius: 100%;
+  font-size: 45px;
+}
+.contenedor .caja .titulo {
+  color: #fff;
+  font-size: 21px;
 }
 
 /*# sourceMappingURL=main.css.map */

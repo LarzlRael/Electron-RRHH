@@ -28,10 +28,10 @@ close_login.addEventListener('click', () => {
 
 });
 
-loginForm.addEventListener('submit',e =>{
+loginForm.addEventListener('submit', e => {
     e.preventDefault();
-    console.log(user.value,password.value);
+    console.log(user.value, password.value);
 
-    
     main.createMenuWindow();
 })
+

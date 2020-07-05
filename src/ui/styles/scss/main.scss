@@ -1,4 +1,5 @@
 @import "_variables.scss";
+@import "employes.scss";
 
 * {
     padding: 0;
@@ -83,7 +84,7 @@
         border-radius: 3px;
         padding: 20px;
         opacity: 0;
-        transition: .3s ease all;
+        transition: 0.3s ease all;
         transform: scale(0.7);
         &.active {
             opacity: 1;
@@ -97,11 +98,46 @@
     line-height: 16px;
     display: block;
     text-align: right;
-    transition: .3 ease all ;
+    transition: 0.3 ease all;
     &:hover {
         cursor: pointer;
     }
 }
 .login-title {
-    
+}
+
+.contenedor {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    .caja {
+        border-radius: 20px;
+        padding: 20px;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        &:hover{
+            cursor: pointer;
+        }
+        .logo {
+            span {
+                border-radius: 100%;
+                i {
+                    padding: 15px;
+                    background: #fff;
+                    border-radius: 100%;
+                    font-size: 45px;
+                }
+            }
+        }
+
+        
+        
+        .titulo {
+            color: #fff;
+            font-size: 21px;
+        }
+    }
 }
