@@ -1,3 +1,55 @@
+
+
+const { remote } = require('electron');
+const main = remote.require('./database/querys');
+const card_container = document.querySelector('#cards-container');
+let allWorkers = [];
+
+const verAllWorkers = async () => {
+    //* sirve para ver los retgistrso
+    //* esta funcion recibe 2 parametros
+    // * primera el orden que puede ASC o DESC
+    // * segundo el numero de registros queremos ver
+    allWorkers = await main.seeAllWorkers('DESC',5);
+    
+    console.log(allWorkers)
+    viewWorkers();
+
+}
+
+//?  obtener los datos de los campos
+
+const viewWorkers = () => {
+    card_container.innerHTML = ""
+    allWorkers.forEach(worker => {
+        console.log('bucle')
+        const div = document.createElement('div');
+        div.classList.add('card', 'col-md-4','m-2');
+        //TODO crear nuestra propia tarjeta para un mejor vista
+        //TODO agregar la parte de detalle de empleado para poder eliminar o editar
+        //TODO crear mas trabajos
+        div.innerHTML += `
+            <img src='${worker.imagen}' class="card-img-top img-fluid" />
+            <div class="card-body">
+                <div class="card-title">
+                    <h5>${worker.nombre} ${worker.apellido}</h5
+                    <p class="card-text"> ${worker.nombre_trabajo} </p>
+                </div>
+            </div>
+            
+        `;
+        card_container.appendChild(div);
+    })
+}
+viewWorkers();
+
+
+
+verAllWorkers()
+
+const formNewEmploye = document.querySelector('#form-new-employe');
+
+
 const next = document.querySelector('.next');
 const next2 = document.querySelector('.next2');
 
@@ -8,7 +60,7 @@ const datosPersonales = document.querySelector('.datos-personales');
 const direccion = document.querySelector('.direccion');
 const puesto_trabajo = document.querySelector('.puesto-trabajo');
 
-const formNewEmploye = document.querySelector('#form-new-employe');
+
 //alert(formNewEmploye.childElementCount);
 
 const stepper = document.querySelector('.stepper');
@@ -68,7 +120,5 @@ for (let i = 0; i < balls; i++) {
 
 //? metodo para recibir los datos del formulario
 
-formNewEmploye.addEventListener('submit', e => {
-    e.preventDefault()
-    alert('esto se va enviar');
-})
+
+

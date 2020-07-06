@@ -32,6 +32,7 @@
         height: 15px;
         border-radius: 100%;
         border: 1px solid #ccc;
+        transition: .3s ease all;
         &.active{
             border: none;
             background: #3CA861;

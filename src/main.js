@@ -1,8 +1,7 @@
-
-
-
-
 const { BrowserWindow, Notification } = require('electron');
+
+//const connection  = require('./database/database');
+
 
 let mainWindow;
 let menuWindow;
