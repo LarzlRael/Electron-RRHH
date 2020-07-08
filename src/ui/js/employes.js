@@ -2,20 +2,42 @@
 
 const { remote } = require('electron');
 const main = remote.require('./database/querys');
+
 const card_container = document.querySelector('#cards-container');
 let allWorkers = [];
+let allJobs = [];
+
 
 const verAllWorkers = async () => {
     //* sirve para ver los retgistrso
     //* esta funcion recibe 2 parametros
     // * primera el orden que puede ASC o DESC
     // * segundo el numero de registros queremos ver
-    allWorkers = await main.seeAllWorkers('DESC',5);
-    
-    console.log(allWorkers)
+    allWorkers = await main.seeAllWorkers('DESC', 5);
+
+    //console.log(allWorkers)
     viewWorkers();
 
 }
+const getJobs = async () => {
+    allJobs = await main.getJobs();
+
+}
+
+const crearTrabajos = async () => {
+    await getJobs();
+    const jobs = document.querySelector('#jobs');
+    console.log(allJobs);
+    allJobs.forEach((job,i) => {
+        let option = document.createElement("option");
+        option.textContent = `${job.nombre_trabajo} - ${job.cantidad_integrantes}`;
+        option.setAttribute('index',i);
+        option.value = job.id_trabajo;
+        jobs.appendChild(option);
+    })
+}
+
+crearTrabajos();
 
 //?  obtener los datos de los campos
 
@@ -24,10 +46,12 @@ const viewWorkers = () => {
     allWorkers.forEach(worker => {
         console.log('bucle')
         const div = document.createElement('div');
-        div.classList.add('card', 'col-md-4','m-2');
+        div.classList.add('card', 'col-md-4', 'm-2');
         //TODO crear nuestra propia tarjeta para un mejor vista
         //TODO agregar la parte de detalle de empleado para poder eliminar o editar
-        //TODO crear mas trabajos
+        //TODO aumentar en trabajadores de salario, fecha incio default, fecha fin
+        //TODO agregar en departamento numero de integrantes  y ponerlo dinamico
+        
         div.innerHTML += `
             <img src='${worker.imagen}' class="card-img-top img-fluid" />
             <div class="card-body">
@@ -117,8 +141,6 @@ for (let i = 0; i < balls; i++) {
     stepper.appendChild(div)
 }
 
-
-//? metodo para recibir los datos del formulario
 
 
 

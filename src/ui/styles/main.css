@@ -30,10 +30,59 @@
   height: 15px;
   border-radius: 100%;
   border: 1px solid #ccc;
+  transition: 0.3s ease all;
 }
 .stepper .step.active {
   border: none;
   background: #3CA861;
+}
+
+.trabajadores-container .row .col-md-3 {
+  background: #3aab83;
+  display: flex;
+  flex-direction: column;
+}
+.trabajadores-container .row .col-md-3 a {
+  text-decoration: none;
+  padding: 20px 10px;
+  color: #fff;
+  font-size: 18px;
+}
+.trabajadores-container .row .col-md-3 a:hover {
+  cursor: pointer;
+}
+.trabajadores-container .row .col-md-3 a span i {
+  font-size: 20px;
+  margin: 0px 10px;
+}
+.trabajadores-container .row .col-md-9.cards-employes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.trabajadores-container .row .col-md-9.cards-employes .card-employe {
+  padding: 5px;
+  border: 1px solid red;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+.trabajadores-container .row .col-md-9.cards-employes .card-employe .card-image {
+  display: block;
+  width: 100%;
+  height: 250px;
+}
+.trabajadores-container .row .col-md-9.cards-employes .card-employe .datos-personales .dato {
+  font-size: 14px;
+}
+.trabajadores-container .row .col-md-9.cards-employes .card-employe .datos-personales .informacion {
+  font-size: 18px;
+}
+
+.mensaje {
+  margin: 10px 0px;
+  text-align: center;
+  padding: 5px 10px;
 }
 
 * {

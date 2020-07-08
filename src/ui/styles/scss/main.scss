@@ -1,5 +1,7 @@
 @import "_variables.scss";
 @import "employes.scss";
+@import "departaments.scss";
+@import "share.scss";
 
 * {
     padding: 0;
@@ -135,7 +137,7 @@
         
         .titulo {
             color: #fff;
-            font-size: 21px;
+            font-size: 21px;    
         }
     }
 }

@@ -8,6 +8,7 @@ let menuWindow;
 let employes;
 let requirements;
 let newMembers;
+let departaments;
 const createMainWindow = () => {
     mainWindow = new BrowserWindow({
         width: 900,
@@ -59,6 +60,19 @@ const createNewMembersWindow = () => {
     newMembers.loadFile('src/ui/windows/new_members.html')
 }
 
+
+
+const createDepartamentssWindow = () => {
+    departaments = new BrowserWindow({
+        width: 900,
+        height: 500,
+        webPreferences: {
+            nodeIntegration: true
+        }
+    });
+    departaments.loadFile('src/ui/windows/departaments.html')
+}
+
 function openSelectView(ventana) {
     switch (ventana) {
         case 0:
@@ -73,6 +87,9 @@ function openSelectView(ventana) {
         case 3:
             return createNewMembersWindow()
             break;
+        case 6:
+            return createDepartamentssWindow()
+            break;  
         default:
             break;
     }

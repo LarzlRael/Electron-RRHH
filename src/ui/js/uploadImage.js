@@ -81,12 +81,13 @@ foto.addEventListener('click', (e) => {
 formNewEmploye.addEventListener('submit', async (e) => {
     e.preventDefault()
     const newEmploye = {
-        trabajo: 1,
+        trabajo: jobs.value,
         nombre: nombre.value,
         apellido: apellido.value,
         telefono: telefono.value,
         direccion: direccion_.value,
-        imagen: imagen
+        imagen: imagen,
+        salario: salario.value
     }
     console.log(newEmploye)
     await main.newEmploye(newEmploye);

@@ -1,0 +1,51 @@
+.trabajadores-container {
+    .row {
+        .col-md-3 {
+            background: #3aab83;
+            display: flex;
+            flex-direction: column;
+            a {
+                text-decoration: none;
+                padding: 20px 10px;
+                color: #fff;
+                font-size: 18px;
+                &:hover {
+                    cursor: pointer;
+                }
+                span {
+                    i {
+                        font-size: 20px;
+                        margin: 0px 10px;
+                    }
+                }
+            }
+        }
+        .col-md-9 {
+            &.cards-employes {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+                .card-employe {
+                    padding: 5px;
+                    border: 1px solid red;
+                    border-radius: 5px;
+                    display: flex;
+                    flex-direction: column;
+                    .card-image {
+                        display: block;
+                        width: 100%;
+                        height: 250px;
+                    }
+                    .datos-personales {
+                        .dato {
+                            font-size: 14px;
+                        }
+                        .informacion {
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
