@@ -12,75 +12,78 @@
     <title>Empleados</title>
 </head>
 
-<div class="row">
-    <div class="col-md-5">
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
 
-        <div class="card employes">
-            <div class="card-title ">
-                <h4 class="text-center">Agregar Nuevo empleado</h4>
-                <div class="card-body">
-                    <form id="form-new-employe">
-                        <div class="datos-personales active">
-                            <h4 class="text-center">Datos Personales</h4>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Nombre del empleado" id="nombre">
+            <div class="card employes">
+                <div class="card-title ">
+                    <h4 class="text-center">Agregar Nuevo empleado</h4>
+                    <div class="card-body">
+                        <form id="form-new-employe">
+                            <div class="datos-personales active">
+                                <h4 class="text-center">Datos Personales</h4>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Nombre del empleado"
+                                        id="nombre">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Apellidos" id="apellidos">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="telefono" id="telefono">
+                                </div>
+                                <button class="btn btn-success next">Siguiente</button>
                             </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Apellidos" id="apellidos">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="telefono" id="telefono">
-                            </div>
-                            <button class="btn btn-success next">Siguiente</button>
-                        </div>
-                        <!--?  Segundo stepper -->
-                        <div class="direccion">
-                            <h4 class="text-center">Direccion y foto</h4>
+                            <!--?  Segundo stepper -->
+                            <div class="direccion">
+                                <h4 class="text-center">Direccion y foto</h4>
 
 
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Direccion" id="direccion">
-                            </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Direccion" id="direccion">
+                                </div>
 
-                            <div class="form-group">
-                                <label for="Imagen">Subir Imagen</label>
-                                <button id="foto">Subir Foto</button>
+                                <div class="form-group">
+                                    <label for="Imagen">Subir Imagen</label>
+                                    <button id="foto">Subir Foto</button>
 
-                            </div>
-                            <button class="btn btn-danger back">Atrás</button>
-                            <button class="btn btn-success next2">Siguiente</button>
-                        </div>
-
-                        <div class="puesto-trabajo">
-                            <h4 class="text-center">Puesto de trabajo</h4>
-                            <label for="">Seleccione Departamento</label>
-                            <br>
-                            <select id="jobs" class="form-control"></select>
-                            <div class="form-group">
-
-                                <label for="">Salario : </label>
-                                <input id="salario" type="number" class="form-control"
-                                    placeholder="Los numeros permitidos 24000 -5000 ">
-                                <div class="mensaje" id="salario-validacion"></div>
+                                </div>
+                                <button class="btn btn-danger back">Atrás</button>
+                                <button class="btn btn-success next2">Siguiente</button>
                             </div>
 
-                            <button class="btn btn-danger back2">atras</button>
+                            <div class="puesto-trabajo">
+                                <h4 class="text-center">Puesto de trabajo</h4>
+                                <label for="">Seleccione Departamento</label>
+                                <br>
+                                <select id="jobs" class="form-control"></select>
+                                <div class="form-group">
 
-                            <input type="submit" value="Registrar" class="btn btn-info">
-                        </div>
+                                    <label for="">Salario : </label>
+                                    <input id="salario" type="number" class="form-control"
+                                        placeholder="Los numeros permitidos 24000 -5000 ">
+                                    <div class="mensaje" id="salario-validacion"></div>
+                                </div>
 
-                    </form>
+                                <button class="btn btn-danger back2">atras</button>
+
+                                <input type="submit" value="Registrar" class="btn btn-info">
+                            </div>
+
+                        </form>
+                    </div>
                 </div>
-            </div>
 
-            <!-- <div class="step active"></div>
-            <div class="step "></div>
-            <div class="step"></div> -->
-            <div class="card-footer stepper"></div>
+                <!-- <div class="step active"></div>
+                <div class="step "></div>
+                <div class="step"></div> -->
+                <div class="card-footer stepper"></div>
+            </div>
         </div>
-    </div>
-    <div class="col-md-7">
-        <div class="row" id="cards-container">
+        <div class="col-md-7">
+            <div class="row" id="cards-container">
+            </div>
         </div>
     </div>
 </div>

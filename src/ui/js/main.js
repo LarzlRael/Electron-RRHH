@@ -2,10 +2,17 @@
 const { remote } = require('electron');
 const main = remote.require('./main');
 
+//? modulo de sweetalert
+const Swal = require('sweetalert2')
+
+//? para obtener el metodo para el login
+const login = remote.require('./database/newuser');
+
 const login_form = document.querySelector('#form-login'),
     button_show_form = document.querySelector('#button-login'),
     close_login = document.querySelector('#close-login'),
-    popup = document.querySelector('#popup');
+    popup = document.querySelector('#popup'),
+    button_ver = document.querySelector('#button-ver');
 
 //? get user and password
 
@@ -28,10 +35,28 @@ close_login.addEventListener('click', () => {
 
 });
 
-loginForm.addEventListener('submit', e => {
+loginForm.addEventListener('submit', async e => {
     e.preventDefault();
     console.log(user.value, password.value);
 
-    main.createMenuWindow();
+    const login_user = {
+        nombre_usuario: user.value,
+        password: password.value
+    }
+
+    if (await login.comparePassword(login_user)) {
+
+        main.createMenuWindow();
+    } else {
+        Swal.fire({
+            title: 'Error',
+            text: 'Error de usaurio o contraseña',
+            icon: 'error',
+            confirmButtonText: 'Reintentar'
+        })
+    }
+});
+button_ver.addEventListener('click', e => {
+    main.createPublic_menuWindow();
 })
 

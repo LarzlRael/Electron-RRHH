@@ -1,3 +1,5 @@
+
+
 const electron = require('electron');
 const dialog = electron.remote.dialog;
 
@@ -90,7 +92,7 @@ formNewEmploye.addEventListener('submit', async (e) => {
         salario: salario.value
     }
     console.log(newEmploye)
-    await main.newEmploye(newEmploye);
+    await main.newEmploye(newEmploye,id_departamento);
     limpiar()
     verAllWorkers()
 

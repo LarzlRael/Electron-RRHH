@@ -4,6 +4,7 @@ const salario_validacion = document.querySelector('#salario-validacion');
 
 
 let trabajo_actual = [];
+let id_departamento = 0;
 
 const salario = document.getElementById('salario');
 let index = 0
@@ -16,12 +17,14 @@ const obtenerSalario = async () => {
 
 jobs.addEventListener('change', (e) => {
     //console.log(trabajo_actual)
-
+    
     salario.placeholder = `Salario debe estar entre ${trabajo_actual[0].salario_minimo} y ${trabajo_actual[0].salario_maximo} `;
     //console.log(jobs)
     index = jobs.selectedIndex;
     salario.placeholder = `Salario debe estar entre ${trabajo_actual[index].salario_minimo} y ${trabajo_actual[index].salario_maximo} `;
 
+    
+    id_departamento = trabajo_actual[index].departamento;
 
     //item_select = jobs.
 })

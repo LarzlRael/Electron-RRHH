@@ -27,14 +27,14 @@ const getJobs = async () => {
 
 }
 const crearTrabajos = async () => {
-    
+
     await getJobs();
     trabajo_seleccionado = trabajos_db[0].nombre_trabajo;
     console.log(trabajo_seleccionado)
     //trabajo_seleccionado = getJobs[0].nombre_trabajo;
     trabajos_db.forEach(trabajo => {
         const aTag = document.createElement('a');
-        
+
         aTag.textContent = trabajo.nombre_trabajo;
         aTag.setAttribute('data-id_trabajo', trabajo.nombre_trabajo)
         trabajos.appendChild(aTag)
@@ -44,9 +44,9 @@ const crearTrabajos = async () => {
 
             trabajo_seleccionado = elemento.getAttribute('data-id_trabajo')
             //alert(trabajo_seleccionado);
+            clickItem();
 
             crearTrabajadores()
-
         })
     })
 }
@@ -95,5 +95,15 @@ crearTrabajadores();
 function limpiar() {
     cards_employes.innerHTML = "";
     allWorkers_db = [];
+}
 
+function clickItem() {
+    const allEmployes = document.querySelectorAll('.card-employe');
+    console.log(allEmployes)
+    allEmployes.forEach(employe => {
+        employe.addEventListener('click', e => {
+            console.log('click')
+            employe.classList.toggle('active')
+        })
+    })
 }
