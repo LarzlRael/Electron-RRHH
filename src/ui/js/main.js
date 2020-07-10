@@ -50,7 +50,7 @@ loginForm.addEventListener('submit', async e => {
     } else {
         Swal.fire({
             title: 'Error',
-            text: 'Error de usaurio o contraseña',
+            text: 'Usuario o contraseña incorrecto',
             icon: 'error',
             confirmButtonText: 'Reintentar'
         })

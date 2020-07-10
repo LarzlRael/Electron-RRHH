@@ -5,19 +5,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/773509b321.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/lux/bootstrap.min.css">
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="./../styles/main.css">
     <title>RRHH</title>
 </head>
 
 <body>
-    <h1>
-        jobs
-    </h1>
-    <div class="contenedor" id="menu_items_public"></div>
 
+    <div class="bg-gray">
+        <div class="container">
+            <h4 class="mb-4">Trabajos</h4>
+            <form id="form_job" class="new-job">
+                
+                <input id ="nombre_trabajo" type="text" placeholder="Nombre trabajo">
+                <input id ="salario_minmo" type="number" placeholder="Salario minimo">
+                <input id ="salario_maximo" type="number" placeholder="Salario maximo">
 
+                <div class="div">
+
+                    <select id="departamento" class="form-control">
+                        <option value="0" disabled >Seleccion un departamento</option>
+                        
+                    </select>
+                </div>
+                <button class="btn btn-success">Nuevo trabajo</button>
+            </form>
+
+            <div class="cards-jobs" id="cards_jobs">
+
+                <!-- <div class="card-job" >
+                    <div class="logo">
+                        <div class="logotipo"></div>
+                        <i class="fas fa-retweet"></i>
+                    </div>
+                    <div class="information">
+                        <h4>Adminstracion de representates</h4>
+                        <h3>direcion donde este esta</h3>
+                        <span>vacantes 8/10</span>
+                    </div>
+                    <div class="buttons">
+                        <button class="seemore">
+                            Ver mas
+                        </button>
+                        <span class="left">
+                            2 Days Back
+                        </span>
+                    </div>
+                </div> -->
+            </div>
+
+        </div>
+    </div>
+
+    <script src="./../js/jobs.js"></script>
 
 </body>
 

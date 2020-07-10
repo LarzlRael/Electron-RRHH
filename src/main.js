@@ -13,6 +13,7 @@ let config;
 let view_menu_public;
 let jobs;
 let locations;
+let departamentos_list;
 
 
 const createMainWindow = () => {
@@ -119,6 +120,16 @@ const createLocationWindow = () => {
     });
     locations.loadFile('src/ui/windows/location.html')
 }
+const createDepartamentListWindow = () => {
+    departamentos_list = new BrowserWindow({
+        width: 900,
+        height: 500,
+        webPreferences: {
+            nodeIntegration: true
+        }
+    });
+    departamentos_list.loadFile('src/ui/windows/departament_list.html')
+}
 
 function openSelectView(nombre_ventana) {
     switch (nombre_ventana) {
@@ -145,6 +156,9 @@ function openSelectView(nombre_ventana) {
         case 'locaciones':
             return createLocationWindow()
             break;
+        case 'departamentos_list':
+            return createDepartamentListWindow()
+            break;
         default:
             break;
     }
@@ -157,5 +171,5 @@ function menu_public() {
 
 }
 module.exports = {
-    createMainWindow, createMenuWindow, openSelectView, createConfigWindow,createPublic_menuWindow,menu_public
+    createMainWindow, createMenuWindow, openSelectView, createConfigWindow, createPublic_menuWindow, menu_public
 }

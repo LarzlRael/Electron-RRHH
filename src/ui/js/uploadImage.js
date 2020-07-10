@@ -1,6 +1,8 @@
 
 
 const electron = require('electron');
+const Swal = require('sweetalert2');
+
 const dialog = electron.remote.dialog;
 
 const path = require('path');
@@ -91,10 +93,32 @@ formNewEmploye.addEventListener('submit', async (e) => {
         imagen: imagen,
         salario: salario.value
     }
+
+
+
     console.log(newEmploye)
-    await main.newEmploye(newEmploye,id_departamento);
-    limpiar()
-    verAllWorkers()
+    if (validar()) {
+
+
+        await main.newEmploye(newEmploye, id_departamento);
+        limpiar()
+        verAllWorkers()
+        obtenerSalario()
+        Swal.fire({
+            title: 'Empleado agregado',
+            text: `Nuevo empleado Agregado`,
+            icon: 'success',
+            confirmButtonText: 'vale'
+        })
+    } else {
+
+        Swal.fire({
+            title: 'Error',
+            text: 'Llena todos los campos ',
+            icon: 'warning',
+            confirmButtonText: 'vale'
+        })
+    }
 
 });
 
@@ -106,4 +130,21 @@ function limpiar() {
 }
 
 
-
+function validar() {
+    if (nombre.value == "") {
+        return false;
+    }
+    if (apellido.value == "") {
+        return false;
+    }
+    if (telefono.value == "") {
+        return false;
+    }
+    if (direccion_.value == "") {
+        return false;
+    }
+    if (salario.value == "") {
+        return false;
+    }
+    return true
+}

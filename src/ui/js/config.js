@@ -27,7 +27,7 @@ async function getUsers() {
         <tr>
             <th>Usuario</th>
             <th>rol</th>
-            <th>Acciones </th>
+            
         </tr>
     `;
     allUsers = await query.systemUsers();
@@ -36,13 +36,7 @@ async function getUsers() {
         const tr = document.createElement('tr');
         tr.innerHTML += `
             <td>${user.nombre_usuario}</td>
-            
             <td>${user.rol == 1 ? "administrador" : "usuario normal"}</td>
-            <td>
-                ${user.estado == 1 ? 
-                `<button class='btn btn-info' onclick=cambiarEstado(${user. id_usuario})>Dar de baja</button>` : "<button class='btn btn-danger'>Dar de Alta</button>"
-                }
-            </td>
         `;
         usuarios.append(tr);
 

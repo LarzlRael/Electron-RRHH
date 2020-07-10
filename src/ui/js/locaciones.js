@@ -1,12 +1,13 @@
 
 const Swal = require('sweetalert2');
+
 const { remote } = require('electron');
 const query = remote.require('./database/location_jobs');
 
 const direccion = document.querySelector('#direccion')
 const ciudad = document.querySelector('#ciudad')
 const provincia = document.querySelector('#provincia')
-//? formualrio
+//? formulario
 const formLocacion = document.querySelector('#formLocacion');
 const limpiar_eliminar = document.querySelector('#limpiar-eliminar');
 
@@ -34,8 +35,23 @@ formLocacion.addEventListener('submit', async e => {
         document.querySelector('#action-button').value = "Crear una nueva Locacion"
         limpar();
     } else {
-        await query.insertNewLocation(newLocacion);
-        limpar();
+        if (validarCampos()) {
+            await query.insertNewLocation(newLocacion);
+            limpar();
+            Swal.fire({
+                title: 'Agregaste una nueva locacion',
+                text: 'Locacion creada',
+                icon: 'success',
+                confirmButtonText: 'vale'
+            })
+        } else {
+            Swal.fire({
+                title: 'Error',
+                text: 'Llena todos los campos',
+                icon: 'warning',
+                confirmButtonText: 'Intentar de nuevo'
+            })
+        }
     }
     getLocationsHere();
 })
@@ -109,7 +125,7 @@ function limpar(params) {
 }
 
 limpiar_eliminar.addEventListener('click', async (e) => {
-    
+
     if (eliminar) {
         if (await query.deleteLocation(id_location)) {
 
@@ -143,3 +159,18 @@ limpiar_eliminar.addEventListener('click', async (e) => {
         limpar()
     }
 })
+
+
+
+function validarCampos() {
+    if (direccion.value == "") {
+        return false;
+    }
+    if (ciudad.value == "") {
+        return false;
+    }
+    if (provincia.value == "") {
+        return false;
+    }
+    return true;
+}

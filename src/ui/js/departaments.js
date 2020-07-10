@@ -4,7 +4,6 @@ const main = remote.require('./database/querys');
 const cards_employes = document.querySelector('#cards-employes');
 const trabajos = document.querySelector('#trabajos');
 
-//const allWorkers = document.querySelector('#jobs');
 
 let allWorkers_db = []
 let trabajos_db = [];
@@ -16,28 +15,30 @@ const getWorkersPerJob_view = async (trabajo) => {
     allWorkers_db = await main.getWorkersPerJob(trabajo);
     //console.log(allWorkers_db)
 }
-const getJobs = async () => {
 
-    trabajos_db = [];
-    console.log(trabajos_db)
-    trabajos_db = await main.getAllJobs();
-
-    console.log(trabajos_db)
-    //console.log(trabajos_db)
-
-}
 const crearTrabajos = async () => {
 
-    await getJobs();
+    trabajos_db = await main.getAllJobs();
+
     trabajo_seleccionado = trabajos_db[0].nombre_trabajo;
+
     console.log(trabajo_seleccionado)
     //trabajo_seleccionado = getJobs[0].nombre_trabajo;
     trabajos_db.forEach(trabajo => {
         const aTag = document.createElement('a');
-
         aTag.textContent = trabajo.nombre_trabajo;
         aTag.setAttribute('data-id_trabajo', trabajo.nombre_trabajo)
-        trabajos.appendChild(aTag)
+        trabajos.appendChild(aTag);
+
+        aTag.addEventListener('click',(e)=>{
+            document.querySelectorAll('a').forEach(element=>{
+                element.classList.remove('active');
+            })
+
+            aTag.classList.toggle('active');
+        })
+
+
     });
     trabajos.childNodes.forEach(elemento => {
         elemento.addEventListener('click', async () => {
@@ -59,14 +60,18 @@ const crearTrabajadores = async () => {
     //! se vacie y no haya sobrecarga
     limpiar();
 
-
-
     await getWorkersPerJob_view(trabajo_seleccionado);
 
+    if (allWorkers_db.length == 0) {
+        cards_employes.innerHTML = `
+        <h6> No se encontraron trabajadores para este trabajo</h6>
+    `;
+    }
 
     allWorkers_db.forEach(worker => {
         let div = document.createElement('div');
         div.classList.add('card-employe');
+
         div.innerHTML += `
         <img src="${worker.imagen}" alt="" class="card-image">
             <div class="datos-personales">
@@ -99,10 +104,9 @@ function limpiar() {
 
 function clickItem() {
     const allEmployes = document.querySelectorAll('.card-employe');
-    console.log(allEmployes)
+//    console.log(allEmployes)
     allEmployes.forEach(employe => {
         employe.addEventListener('click', e => {
-            console.log('click')
             employe.classList.toggle('active')
         })
     })

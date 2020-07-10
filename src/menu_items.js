@@ -40,6 +40,14 @@ const menu_items = [
         watch: true
     },
     {
+        icono: 'fas fa-building',
+        color1: '101,101,250',
+        color2: '148,148,250',
+        titulo: 'Listado de departamentos',
+        name: 'departamentos_list',
+        watch: false
+    },
+    {
         icono: 'far fa-bell',
         color1: '14,141,252',
         color2: '75,170,252',
@@ -51,7 +59,7 @@ const menu_items = [
         icono: 'far fa-building',
         color1: '14,141,252',
         color2: '75,170,252',
-        titulo: 'Departamentos',
+        titulo: 'Empleados por trabajo',
         name: 'departamentos',
         watch: false
     },
@@ -72,7 +80,7 @@ const menu_items = [
         watch: false
     },
     {
-        icono: 'fas fa-sliders-h',
+        icono: 'fas fa-user-lock',
         color1: '255, 145, 28',
         color2: '255, 194, 128',
         titulo: 'Configuraciones',

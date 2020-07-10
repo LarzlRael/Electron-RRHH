@@ -5,6 +5,14 @@
             display: flex;
             flex-direction: column;
             a {
+                text-transform: capitalize;
+                &:hover,
+                &.active {
+                    color: #3aab83;
+                    background: #fff;
+                }
+                transition: 0.2s ease all;
+                border-radius: 5px;
                 text-decoration: none;
                 padding: 20px 10px;
                 color: #fff;
@@ -24,17 +32,18 @@
             &.cards-employes {
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
+                
                 gap: 20px;
                 .card-employe {
-                    &:hover{
-                        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.7);
+                    &:hover {
+                        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.7);
                         cursor: pointer;
                     }
-                    &.active{
-                        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.7);
+                    &.active {
+                        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.7);
                     }
                     padding: 5px;
-                    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
                     transition: 0.3s;
                     border-radius: 5px;
                     display: flex;

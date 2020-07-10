@@ -12,7 +12,7 @@ const obtenerSalario = async () => {
     trabajo_actual = await main.getSalaries();
     //console.log(trabajo_actual)
     //console.log(trabajo_actual[0].salario_minimo);
-    salario.placeholder = `Salario debe estar entre ${trabajo_actual[0].salario_minimo} y ${trabajo_actual[0].salario_maximo} `;
+    salario.placeholder = `Salario debe estar entre ${trabajo_actual[0].salario_minimo} y ${trabajo_actual[0].salario_maximo}`;
 }
 
 jobs.addEventListener('change', (e) => {
@@ -30,7 +30,6 @@ jobs.addEventListener('change', (e) => {
 })
 salario.addEventListener('keyup', e => {
     if (salario.value.length == 0) {
-        console.log("no tiene contenido")
         salario_validacion.textContent = ""
     }
     console.log(salario.value);
@@ -50,10 +49,8 @@ salario.addEventListener('keyup', e => {
         salario_validacion.classList.remove("bg-danger");
         salario_validacion.classList.add("bg-success")
         salario_validacion.textContent = "Salario valido"
-
     }
 })
-
 
 
 obtenerSalario();

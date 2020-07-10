@@ -30,7 +30,8 @@ const crearTrabajos = async () => {
     console.log(allJobs);
     allJobs.forEach((job,i) => {
         let option = document.createElement("option");
-        option.textContent = `${job.nombre_trabajo} - ${job.cantidad_integrantes}`;
+        option.textContent = `${job.nombre_trabajo}  
+        (${job.cantidad_integrantes} / ${job.cantidad_total} )`;
         option.setAttribute('index',i);
         option.value = job.id_trabajo;
         jobs.appendChild(option);
@@ -44,7 +45,6 @@ crearTrabajos();
 const viewWorkers = () => {
     card_container.innerHTML = ""
     allWorkers.forEach(worker => {
-        console.log('bucle')
         const div = document.createElement('div');
         div.classList.add('card', 'col-md-4', 'm-2');
         //TODO crear nuestra propia tarjeta para un mejor vista
@@ -140,7 +140,4 @@ for (let i = 0; i < balls; i++) {
     div.classList.add('step');
     stepper.appendChild(div)
 }
-
-
-
 

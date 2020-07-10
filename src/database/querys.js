@@ -10,7 +10,7 @@ const newEmploye = async (trabajador, id_departamento) => {
         console.log(trabajador)
         const conn = await getConnection();
         //? convirtiendo a decimal
-            const resultado = await conn.query("INSERT INTO trabajador set ? ", trabajador)
+        const resultado = await conn.query("INSERT INTO trabajador set ? ", trabajador)
 
         await conn.query("call ocuparDepartamento(?)", id_departamento);
 
@@ -37,8 +37,8 @@ const seeAllWorkers = async (order, limite) => {
 const getJobs = async () => {
     const conn = await getConnection();
     const result = await conn.query(`select tr.id_trabajo,tr.nombre_trabajo,
-    dt.nombre_departamento,dt.cantidad_integrantes,tr.departamento 
-    from trabajo as tr inner join  departamento as dt on tr.departamento = dt.id_departamento;  `);
+    dt.nombre_departamento,dt.cantidad_integrantes,dt.cantidad_total,tr.departamento 
+    from trabajo as tr inner join  departamento as dt on tr.departamento = dt.id_departamento; `);
     return result;
 }
 const getWorkersPerJob = async (nombre_trabajo) => {
@@ -71,12 +71,10 @@ const getAllJobs = async () => {
 }
 const insertNewUser = async (user) => {
     const conn = await getConnection();
-    const result = await conn.query("insert into usuario set ? ",user);
+    const result = await conn.query("insert into usuario set ? ", user);
     console.log('se inserto un nuevo usuario')
     return result;
 }
-
-
 
 module.exports = {
     newEmploye,

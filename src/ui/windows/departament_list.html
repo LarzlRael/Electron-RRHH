@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>Listado de departametnos</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <form id="form_deparment_list">
+                            <h5 class="mb-4">Agregar un nuevo departamento</h5>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Nombre del departamento"
+                                    id="nombre_departamento" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Numero de miembros"
+                                    id="numero_miembros" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Seleccion una locacion</label>
+                                <select name="" id="locacion_select" class="form-control">
+                                    <option value="2">Seleccione</option>
+                                </select>
+                            </div>
+
+                            <input class="btn btn-success" type="submit" value="Nuevo Departamento">
+                        </form> 
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <table class="table" id="deparments_list">
+                    <tr>
+                        <th>identificador</th>
+                        <th>Nombre departamento</th>
+                        <th>cantidad de integrantes</th>
+                        <th>Direccion</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="./../js/deparments_list.js"></script>
+</body>
+
+</html>

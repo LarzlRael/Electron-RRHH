@@ -43,10 +43,17 @@
   flex-direction: column;
 }
 .trabajadores-container .row .col-md-3 a {
+  text-transform: capitalize;
+  transition: 0.2s ease all;
+  border-radius: 5px;
   text-decoration: none;
   padding: 20px 10px;
   color: #fff;
   font-size: 18px;
+}
+.trabajadores-container .row .col-md-3 a:hover, .trabajadores-container .row .col-md-3 a.active {
+  color: #3aab83;
+  background: #fff;
 }
 .trabajadores-container .row .col-md-3 a:hover {
   cursor: pointer;
@@ -91,6 +98,95 @@
   margin: 10px 0px;
   text-align: center;
   padding: 5px 10px;
+}
+
+.bg-gray {
+  background: #e0e0e0;
+}
+
+.cards-jobs {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 350px;
+  gap: 20px;
+}
+
+.card-job {
+  background: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+.card-job:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.7);
+}
+.card-job .logo {
+  display: flex;
+  justify-content: space-between;
+}
+.card-job .logo .logotipo {
+  width: 100px;
+  height: 100px;
+  background: #ccc;
+  border-radius: 50%;
+}
+.card-job .logo i {
+  color: #808080;
+}
+.card-job .information h4 {
+  font-size: 14px;
+  font-weight: bold;
+  color: #262626;
+  text-transform: capitalize;
+}
+.card-job .information h3 {
+  font-size: 14px;
+  margin: 10px 0;
+  color: #404040;
+}
+.card-job .information span {
+  font-size: 12px;
+  color: #808080;
+}
+.card-job .buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-job .buttons .seemore {
+  padding: 8px 30px;
+  border-radius: 3px;
+  border: 1px solid #ff6ea6;
+  color: #ff6ea6;
+  font-size: 15px;
+  font-weight: bold;
+}
+.card-job .buttons .seemore:hover {
+  cursor: pointer;
+}
+.card-job .buttons .left {
+  justify-self: center;
+  font-weight: normal;
+  font-size: 14px;
+  color: #ababad;
+}
+
+.new-job {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.new-job input {
+  padding: 9px;
+  margin: 0 0 5px 10px;
+  border: none;
+  border-radius: 3px;
 }
 
 * {
