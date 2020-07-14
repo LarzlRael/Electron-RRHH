@@ -5,9 +5,9 @@ const getDepartaments = async (location) => {
 
     try {
         const conn = await getConnection();
-        const result = await conn.query(`select * from departamento`);
+        const result = await conn.query('call obtenerDepartamentos()');
 
-        return result;
+        return result[0];
 
     } catch (error) {
         console.log(error)
@@ -19,13 +19,9 @@ const getDeparmentLocacion = async () => {
     try {
         const conn = await getConnection();
         const result = await conn.query(`
-        select dp.id_departamento,dp.nombre_departamento,dp.cantidad_integrantes,dp.cantidad_total,
-        lc.direccion
-        from departamento as dp 
-        inner join locacion lc ON 
-        dp.locacion = lc.id_locacion;`);
-
-        return result;
+        call ObtenerDepartamentosPorLocacion();`);
+        
+        return result[0];
 
     } catch (error) {
         console.log(error)

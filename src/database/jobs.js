@@ -4,15 +4,8 @@ const getJobs = async (location) => {
 
     try {
         const conn = await getConnection();
-        const result = await conn.query(`
-        select tr.nombre_trabajo,tr.salario_maximo,tr.salario_minimo,
-        dt.nombre_departamento,dt.cantidad_integrantes, dt.cantidad_total
-        from trabajo as tr
-        inner join departamento dt 
-        on tr.departamento = dt.id_departamento;`);
-
-        return result;
-
+        const result = await conn.query(`call obtenerSueldoTrabajo();`);
+        return result[0];
     } catch (error) {
         console.log(error)
     }
@@ -37,7 +30,6 @@ const insertJob = async (job) => {
             console.log(error)
         }
 }
-
 
 
 module.exports = {

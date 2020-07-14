@@ -7,7 +7,7 @@ const trabajos = document.querySelector('#trabajos');
 
 let allWorkers_db = []
 let trabajos_db = [];
-let trabajo_seleccionado = [];
+let trabajo_seleccionado = "";
 
 const getWorkersPerJob_view = async (trabajo) => {
     // allWorkers_db = await main.getWorkersPerJob('Encargado Selección y Capacitación Bilingüe Francés/Español');

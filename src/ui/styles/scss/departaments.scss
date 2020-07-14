@@ -32,7 +32,7 @@
             &.cards-employes {
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
-                
+                grid-template-rows: minmax(400px,auto) 1fr;
                 gap: 20px;
                 .card-employe {
                     &:hover {

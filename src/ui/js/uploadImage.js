@@ -94,9 +94,6 @@ formNewEmploye.addEventListener('submit', async (e) => {
         salario: salario.value
     }
 
-
-
-    console.log(newEmploye)
     if (validar()) {
 
 
@@ -123,10 +120,13 @@ formNewEmploye.addEventListener('submit', async (e) => {
 });
 
 function limpiar() {
+    formNewEmploye.reset();
     nombre.value = "";
     apellido.value = "";
     telefono.value = "";
     direccion_.value = "";
+    imagen.value = "";
+    salario.value = ""
 }
 
 

@@ -5,18 +5,19 @@ const insertNewLocation = async (location) => {
     try {
         const conn = await getConnection();
         const result = await conn.query("insert into locacion set ? ", location);
-
+        return true;
     } catch (error) {
         console.log(error)
+        return false;
     }
 }
 const getLocations = async () => {
 
     try {
         const conn = await getConnection();
-        const result = await conn.query("SELECT * from locacion");
+        const result = await conn.query("call obtenerLocaciones()");
 
-        return result;
+        return result[0];
     } catch (error) {
         console.log(error)
     }
@@ -25,10 +26,10 @@ const getLocationForId = async (id_location) => {
 
     try {
         const conn = await getConnection();
-        const result = await conn.query("SELECT * from locacion where id_location  = ? ", id_location);
+        const result = await conn.query("call obtenerLocacionPorId(?)", id_location);
 
         console.log(result)
-        return result;
+        return result[0];
 
     } catch (error) {
         console.log(error)
@@ -51,7 +52,7 @@ const deleteLocation = async (id_location) => {
     id_location = parseInt(id_location)
     try {
         const conn = await getConnection();
-        const result = await conn.query("DELETE FROM locacion  WHERE id_locacion = ? ", id_location);
+        const result = await conn.query("eliminarLocacion(?)", id_location);
         console.log('Elimnado correctameno')
         return true
     } catch (error) {

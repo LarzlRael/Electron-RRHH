@@ -41,9 +41,12 @@ const comparePassword = async (user) => {
 const systemUsers = async () => {
 
     const conn = await getConnection();
-    const result = await conn.query("select * from usuario order by id_usuario DESC;");
-
-    return result
+    try {
+        const result = await conn.query("call obtenerUsuariosSistema();");
+        return result[0];
+    } catch (error) {
+        console.log(object)
+    }
 
 }
 

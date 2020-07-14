@@ -15,6 +15,7 @@ const newEmploye = async (trabajador, id_departamento) => {
         await conn.query("call ocuparDepartamento(?)", id_departamento);
 
         new Notification({
+
             title: 'Nuevo Empleado agreado',
             body: `Acabas de registrar ${trabajador.nombre} ${trabajador.apellido}`,
 
@@ -36,44 +37,45 @@ const seeAllWorkers = async (order, limite) => {
 
 const getJobs = async () => {
     const conn = await getConnection();
-    const result = await conn.query(`select tr.id_trabajo,tr.nombre_trabajo,
-    dt.nombre_departamento,dt.cantidad_integrantes,dt.cantidad_total,tr.departamento 
-    from trabajo as tr inner join  departamento as dt on tr.departamento = dt.id_departamento; `);
-    return result;
+    const result = await conn.query('call obtenerTrabajos();');
+    return result[0];
 }
 const getWorkersPerJob = async (nombre_trabajo) => {
     const conn = await getConnection();
-    const query = `select tr.nombre,tr.apellido,tr.telefono,tr.direccion,tr.imagen,tr.salario,trb.nombre_trabajo  from 
-    trabajador as tr
-    inner join trabajo as trb
-    On tr.trabajo  = trb.id_trabajo
-    and trb.nombre_trabajo="${nombre_trabajo}"`;
 
-    const result = await conn.query(query);
+    const result = await conn.query('call obtenerTrabajadoresPorTrabajo(?)', nombre_trabajo);
     //console.log(query)
-    return result;
+    return result[0];
 }
 const getSalaries = async () => {
     const conn = await getConnection();
-    const query = `select nombre_trabajo,
-    salario_minimo,salario_maximo,departamento 
-    from trabajo;`;
-
-    const result = await conn.query(query);
-    //console.log(query)
-    return result;
+    try {
+        const result = await conn.query('call obtenerSalarios();');
+        return result[0];
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 const getAllJobs = async () => {
     const conn = await getConnection();
-    const result = await conn.query("select id_trabajo ,nombre_trabajo from trabajo;");
-    return result;
+    try {
+        const result = await conn.query("call obtenerLosTrabajosID();");
+        return result[0];
+    } catch (error) {
+        console.log(error)
+    }
 }
 const insertNewUser = async (user) => {
-    const conn = await getConnection();
-    const result = await conn.query("insert into usuario set ? ", user);
-    console.log('se inserto un nuevo usuario')
-    return result;
+    try {
+        const conn = await getConnection();
+        const result = await conn.query("insert into usuario set ? ", user);
+        //console.log('se inserto un nuevo usuario')
+        return true;
+    } catch (error) {
+        console.log(error)
+        return false
+    }
 }
 
 module.exports = {
