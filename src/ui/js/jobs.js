@@ -78,7 +78,6 @@ form_job.addEventListener('submit', async (e) => {
         departamento: departamento.value
     }
 
-
     if (validarCampos()) {
         query.insertJob(newJob);
         Swal.fire({
@@ -89,6 +88,7 @@ form_job.addEventListener('submit', async (e) => {
         });
         getJobs();
         getDeparmetns_here()
+        limpiar();
     } else {
         Swal.fire({
             title: 'Error',
@@ -120,3 +120,10 @@ function validarCampos() {
     return true;
 }
 
+function limpiar() {
+    form_job.reset();
+    nombre_trabajo.value = "";
+    salario_maximo.value = "";
+    salario_minmo.value = "";
+    departamento.value = "";
+}

@@ -19,8 +19,8 @@ let locaciones_db = [];
 async function getDepartmentosHere() {
 
     deparmentos_db = await main.getDeparmentLocacion();
-    console.log(deparmentos_db);
 
+    deparments_list.innerHTML = "";
     deparmentos_db.forEach(departamento => {
         const tr = document.createElement('tr');
         tr.innerHTML += `
@@ -50,11 +50,11 @@ getDepartmentosHere();
 
 form_deparment_list.addEventListener('submit', async (e) => {
     e.preventDefault();
-    console.log(
-        nombre_departamento.value,
-        numero_miembros.value,
-        locacion_select.value
-    );
+    // console.log(
+    //     nombre_departamento.value,
+    //     numero_miembros.value,
+    //     locacion_select.value
+    // );
 
     let newDepartament = {
         nombre_departamento: nombre_departamento.value,
@@ -63,12 +63,16 @@ form_deparment_list.addEventListener('submit', async (e) => {
     }
 
     if (validarCampos()) {
+        main.insertNewDepartament(newDepartament)
         Swal.fire({
             title: 'Departamento creado',
             text: 'Nuevo departamento agregado',
             icon: 'success',
             confirmButtonText: 'bien :D'
-        })
+        });
+        limpiar()
+        getLocacionHere();
+        getDepartmentosHere();
     } else {
         Swal.fire({
             title: 'Hubo un error',
@@ -77,7 +81,6 @@ form_deparment_list.addEventListener('submit', async (e) => {
             confirmButtonText: 'vale'
         })
     }
-
 
 })
 

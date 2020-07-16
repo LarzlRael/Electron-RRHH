@@ -13,7 +13,7 @@ const verAllWorkers = async () => {
     //* esta funcion recibe 2 parametros
     // * primera el orden que puede ASC o DESC
     // * segundo el numero de registros queremos ver
-    allWorkers = await main.seeAllWorkers('DESC', 5);
+    allWorkers = await main.seeAllWorkers('DESC', 7);
 
     //console.log(allWorkers)
     viewWorkers();
@@ -47,16 +47,13 @@ const viewWorkers = () => {
     allWorkers.forEach(worker => {
         const div = document.createElement('div');
         div.classList.add('card', 'col-md-4', 'm-2');
-        //TODO crear nuestra propia tarjeta para un mejor vista
-        //TODO agregar la parte de detalle de empleado para poder eliminar o editar
-        //TODO aumentar en trabajadores de salario, fecha incio default, fecha fin
-        //TODO agregar en departamento numero de integrantes  y ponerlo dinamico
+        
         
         div.innerHTML += `
             <img src='${worker.imagen}' class="card-img-top img-fluid" />
             <div class="card-body">
                 <div class="card-title">
-                    <h5>${worker.nombre} ${worker.apellido}</h5
+                    <h6 class="text-capitalize">${worker.nombre} ${worker.apellido}</h6>
                     <p class="card-text"> ${worker.nombre_trabajo} </p>
                 </div>
             </div>
@@ -128,7 +125,6 @@ back2.addEventListener('click', e => {
 //alert(formNewEmploye.childElementCount);
 
 //const stepper = document.querySelector('.stepper');
-
 
 const balls = formNewEmploye.childElementCount;
 

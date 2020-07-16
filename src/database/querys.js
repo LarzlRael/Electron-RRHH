@@ -5,9 +5,8 @@ const { getConnection } = require('./database');
 
 const newEmploye = async (trabajador, id_departamento) => {
 
+    
     try {
-
-        console.log(trabajador)
         const conn = await getConnection();
         //? convirtiendo a decimal
         const resultado = await conn.query("INSERT INTO trabajador set ? ", trabajador)

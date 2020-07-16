@@ -22,7 +22,7 @@ const crearTrabajos = async () => {
 
     trabajo_seleccionado = trabajos_db[0].nombre_trabajo;
 
-    console.log(trabajo_seleccionado)
+    console.log(trabajos_db)
     //trabajo_seleccionado = getJobs[0].nombre_trabajo;
     trabajos_db.forEach(trabajo => {
         const aTag = document.createElement('a');
@@ -67,7 +67,7 @@ const crearTrabajadores = async () => {
         <h6> No se encontraron trabajadores para este trabajo</h6>
     `;
     }
-
+    console.log(allWorkers_db);
     allWorkers_db.forEach(worker => {
         let div = document.createElement('div');
         div.classList.add('card-employe');
@@ -76,11 +76,11 @@ const crearTrabajadores = async () => {
         <img src="${worker.imagen}" alt="" class="card-image">
             <div class="datos-personales">
                 <span class="dato">Nombre: </span>
-                <span class="informacion"> ${worker.nombre} ${worker.apellido} </span>
+                <span class="informacion text-capitalize"> ${worker.nombre} ${worker.apellido} </span>
             </div>
         <div class="datos-personales">
-            <span class="dato">direccion: </span>
-            <span class="informacion"> ${worker.direccion} </span>
+            <span class="dato">Direccion: </span>
+            <span class="informacion text-capitalize"> ${worker.direccion} </span>
         </div>
         <div class="datos-personales">
             <span class="dato">Salario : </span>
@@ -88,7 +88,7 @@ const crearTrabajadores = async () => {
         </div>
         <div class="datos-personales">
             <span class="dato">trabaja desde:  </span>
-            <span class="informacion"> 20/20/20 </span>
+            <span class="informacion"> ${worker.fecha_inicio} </span>
         </div>`;
 
         cards_employes.appendChild(div);
