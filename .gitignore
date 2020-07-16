@@ -1,4 +1,4 @@
 release-builds/
 node_modules/
 .env
-.vscode
+.vscode/
