@@ -1,7 +1,5 @@
 const { BrowserWindow, Notification } = require('electron');
 const { menu_items } = require('./menu_items');
-const Swal = require('sweetalert2')
-//const connection  = require('./database/database');
 
 let mainWindow;
 let menuWindow;

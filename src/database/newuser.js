@@ -13,10 +13,17 @@ const insertNewUser = async (user) => {
     let encrypt = bcrypt.hashSync(user.password, salt);
     user.password = encrypt;
 
-    const conn = await getConnection();
-    const result = await conn.query("insert into usuario set ? ", user);
-    console.log('se inserto un nuevo usuario')
-    return result;
+    try {
+        const conn = await getConnection();
+        await conn.query("insert into usuario set ? ", user);
+        return true
+    } catch (error) {
+        console.log(error)
+        return false
+    }
+
+
+
 }
 
 const comparePassword = async (user) => {

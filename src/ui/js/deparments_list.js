@@ -76,7 +76,6 @@ form_deparment_list.addEventListener('submit', async (e) => {
             icon: 'warning',
             confirmButtonText: 'vale'
         })
-        console.log('hubo un errror');
     }
 
 

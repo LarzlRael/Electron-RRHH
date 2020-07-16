@@ -1,5 +1,6 @@
 const { remote } = require('electron');
 const query = remote.require('./database/newuser');
+const Swal = require('sweetalert2');
 
 let allUsers = []
 
@@ -12,14 +13,37 @@ const usuarios = document.getElementById("usuarios");
 
 form_new_user.addEventListener('submit', e => {
     e.preventDefault();
-    console.log(usuario.value, password.value, administrador.checked);
     const newuser = {
         nombre_usuario: usuario.value,
         password: password.value,
         rol: administrador.checked
     }
-    query.insertNewUser(newuser)
-    getUsers();
+    if (validarDatos()) {
+        if (query.insertNewUser(newuser)) {
+            Swal.fire({
+                title: 'Nuevo usuario',
+                text: 'Nuevo usuario agregado',
+                icon: 'success',
+                confirmButtonText: 'bien :D'
+            })
+            getUsers();
+        } else {
+            Swal.fire({
+                title: 'Hubo un error',
+                text: 'El nombre de usuario ya fue usando por otro usuario',
+                icon: 'warning',
+                confirmButtonText: 'Reitentar'
+            })
+        }
+    } else {
+
+        Swal.fire({
+            title: 'Hubo un error',
+            text: 'Llena todos los campos ',
+            icon: 'warning',
+            confirmButtonText: 'vale'
+        })
+    }
 });
 
 async function getUsers() {
@@ -31,7 +55,6 @@ async function getUsers() {
         </tr>
     `;
     allUsers = await query.systemUsers();
-    console.log(allUsers)
     allUsers.forEach(user => {
         const tr = document.createElement('tr');
         tr.innerHTML += `
@@ -48,3 +71,15 @@ function cambiarEstado(id) {
 }
 getUsers();
 
+function validarDatos() {
+    if (usuario.value == "") {
+        return false
+    }
+    if (password.value == "") {
+        return false
+    }
+    if (administrador.value == "") {
+        return false
+    }
+    return true;
+}
